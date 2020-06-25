@@ -1,0 +1,9 @@
+<div class="main posts-edit">
+  <div class="edit-container">
+    <h2 class="form-heading">編集する</h2>
+    <%= form_with model: @post do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

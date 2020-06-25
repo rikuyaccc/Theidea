@@ -1,0 +1,21 @@
+<img src=<%= @user.image_name %> class="icon-image">
+<p>名前: <%= @user.name %></p>
+<p>プロフィール: <%= @user.profile %></p> 
+<% if @user.id == current_user.id %>
+  <%= link_to "ユーザー情報を編集する", edit_user_registration_path %>
+  <%= link_to "ユーザー情報を削除する", user_registration_path, method: :delete %>
+<% end %>
+
+<h2>投稿一覧</h2>
+<%= @user.posts.each do |post| %>
+  <div class="posts-index-item">
+    <div class="post-left">
+      <img src=<%= post.user.image_name %> class="icon-image">
+    </div>
+    <div class="post-right">
+      <%= link_to post.user.name, user_path(post.user.id) %> 
+      <%= link_to post.content, edit_post_path(post.id) %>
+    </div>
+  </div>
+<% end %>  
+
