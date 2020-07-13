@@ -7,7 +7,7 @@
           <img src=<%= user.image_name %> class="icon-image">
         </div>
         <div class="users-right">
-          <%= link_to user.name, user_path(user) %>
+          <%= link_to user.name, user_path(user), class: "change" %>
         </div>
       </div>
     <% end %>

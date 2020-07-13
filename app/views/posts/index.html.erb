@@ -6,10 +6,18 @@
         <img src=<%= post.user.image_name %> class="icon-image">
       </div>
       <div class="post-right">
-        <%= link_to post.user.name, user_path(post.user) %>
-        <%= link_to post.content, post_path(post) %>
+        <%= link_to post.user.name, user_path(post.user),class: "change" %>
+        <%= link_to post.content, post_path(post), class: "content" %>
       </div>
     </div>
   <% end %>
+  </div>
+  <div class="box-side">
+    <div class="user-information">
+      <img src=<%= current_user.image_name %> class="icon-image">
+      <%= link_to current_user.name, user_path(current_user),class: "change" %>
+    </div>
+    <div class="recommended">
+    </div>
   </div>
 </div>

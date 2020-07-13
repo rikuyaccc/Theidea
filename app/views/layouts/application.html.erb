@@ -10,7 +10,16 @@
   </head>
 
   <body>
-    <%= link_to "ホームに戻る", "/" %>
+    <header id="header">
+      <div class="header-box">
+      <h2>TheIdea</h2>
+        <div class="header-item">
+          <%= link_to image_tag("ホームのフリーアイコン素材.png", class:"header-icon"), posts_path %> 
+          <%= link_to image_tag("ifn0387.png", class:"header-icon") %>
+          <%= link_to image_tag("ハートのマーク.png", class:"header-icon")%>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

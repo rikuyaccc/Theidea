@@ -1,0 +1,45 @@
+.box-name label,.box-confirmation label{
+    font-weight: 700;
+    font-size: 13px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    
+}
+
+.box-name input[type="name"], .box-confirmation input[type="password_confirmation"] {
+    border-style: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 31px;
+    border: solid 1px #a6a6a6;
+}
+
+
+.box-image {
+    margin-bottom: 13px;
+}
+
+.box-confirmation {
+    margin-bottom: 13px;
+}
+
+.actions input[type="submit"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 12px;
+    background: linear-gradient(to bottom, #f7dfa5,#f0c14b);
+    border: solid 1px #a88734;
+    border-radius: 3px;
+}
+
+.actions input[type="submit"]:hover {
+    cursor: pointer;
+    background:#f0c14b;
+}
+
+.box-login a {
+    display: block;
+    font-size: 13px;
+    text-align: center;
+  }

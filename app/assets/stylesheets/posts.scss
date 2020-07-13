@@ -1,3 +1,93 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+
+
+/*===================================== posts-new */
+
+.new-container {
+  margin: 0 auto;
+  width: 500px;
+  height: 155px;
+  border:solid 1px #E6E6E6;
+}
+
+.form-heading {
+  height: 32px;
+  border-bottom: solid 1px #E6E6E6;
+}
+
+/*===================================== posts-index */
+
+.posts-index {
+  display: flex;
+  width: 944px;
+  margin: 30px auto;
+}
+
+.posts-container {
+  width: 611px;
+  border-left: solid 1px #e6e6e6;
+  border-right: solid 1px #e6e6e6;
+}
+
+.posts-index-item {
+  width: 100%;
+  border-bottom: solid 1px #e6e6e6;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.box-side {
+  width: 293px;
+  height: 1008px;
+  margin-left: 30px;
+  position: fixed;
+  top: 82px;
+  left: 1122px;
+}
+
+.user-information {
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+}
+
+/*====================================== posts/show */
+
+.show-container {
+  margin: 0 auto;
+  width: 611px;
+  border: solid 1px #e6e6e6;
+  overflow: hidden;
+}
+
+.posts-show-item {
+  padding-left: 10px;
+}
+
+.post-user-name {
+  display: flex;
+  align-items: center;
+}
+
+
+.post-menus {
+  float: right;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+/*================================= post/edit */
+
+.edit-container {
+  margin: 0 auto;
+  width: 611px;
+}
+
+
+

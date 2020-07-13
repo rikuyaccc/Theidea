@@ -1,8 +1,8 @@
 <div class="main posts-new">
   <div class="new-container">
-    <h2 class="form-heading">アイディアを投稿しよう</h2>
+    <p class="form-heading">アイディアを投稿</p>
     <%= form_with model: @post do |f| %>
-      <%= f.text_area :content %>
+      <%= f.text_area :content, size: "50x8" %>
       <%= f.submit %>
     <% end %>
   </div>
