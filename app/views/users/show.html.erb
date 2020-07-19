@@ -20,6 +20,16 @@
       </div>
     </div>
 
+    <p><%= "フォロー数: #{@user.follower.count}" %></p>
+    <p><%= "フォロワー数: #{@user.followed.count}" %></p>
+    <% unless @user == current_user %>
+      <% if current_user.following?(@user) %>
+        <%= link_to "フォロー解除", unfollow_path(@user.id), method: :"post" %>
+      <% else %>
+        <%= link_to "フォロー", follow_path(@user.id), method: :"post" %>
+      <% end %>
+    <% end %>
+
     <h2>投稿一覧</h2>
     <%= @user.posts.each do |post| %>
       <div class="posts-index-item">

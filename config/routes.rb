@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     registrarions: "users/registrations"
   }
 
+  post "follow/:id" => "relationships#follow", as: "follow"
+  post "unfollow/:id" => "relationships#unfollow", as: "unfollow"
+
   resources :users, only: [:show,:index]
 
   get '/' => "home#top"

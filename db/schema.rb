@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_081439) do
+ActiveRecord::Schema.define(version: 2020_07_16_074723) do
 
   create_table "posts", force: :cascade do |t|
     t.string "content"
@@ -20,8 +20,13 @@ ActiveRecord::Schema.define(version: 2020_07_10_081439) do
   end
 
   create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,10 +40,11 @@ ActiveRecord::Schema.define(version: 2020_07_10_081439) do
     t.string "name"
     t.string "image_name"
     t.text "profile"
-    t.string "website"
     t.string "sex"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end

@@ -6,11 +6,10 @@ class User < ApplicationRecord
 
   mount_uploader :image_name, ImageUploader
 
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
-
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id"
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id"
+  has_many :following_user, through: :follower, source: :followed
+  has_many :follower_uer, through: :follwed, source: :follower
 
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
@@ -19,21 +18,18 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id)
   end
 
-  def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+  def follow(user_id)
+    follower.create(followed_id: user_id)
   end
 
-  def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    if relationship
-      relationship.destroy
-    end
+  def unfollow(user_id)
+    follower.find_by(followed_id: user_id).destroy
   end
 
-  def following?(other_user)
-    self.followings.include?(other_user)
+  def following?(user)
+    following_user.include?(user)
   end
 
+  
+  
 end
